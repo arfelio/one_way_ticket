@@ -1,1 +1,18 @@
-h1 hello
+.container
+  .col-md-5
+    .form-area
+      form role="form"
+        br style="clear:both" /
+        h3 style=("margin-bottom: 25px; text-align: center;")  Contact Form
+        .form-group
+          input#name.form-control name="name" placeholder="Name" required="" type="text" /
+        .form-group
+          input#email.form-control name="email" placeholder="Email" required="" type="text" /
+        .form-group
+          input#mobile.form-control name="mobile" placeholder=("Mobile Number") required="" type="text" /
+        .form-group
+          input#subject.form-control name="subject" placeholder="Subject" required="" type="text" /
+        .form-group
+          textarea#message.form-control maxlength="140" placeholder="Message" rows="7" type="textarea"
+          span.help-block/
+        button#submit.btn.btn-primary.pull-right name="submit" type="button"  Submit Form
