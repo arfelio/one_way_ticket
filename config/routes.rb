@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  resources :tickets
+  resources :tickets do
+    get :accepted, on: :collection
+  end
 end

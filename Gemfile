@@ -35,9 +35,9 @@ gem 'pg'
 gem 'activerecord'
 gem 'orm_adapter'
 
+
+gem "interactor", "~> 3.0"
 gem "dry-validation"
-gem "trailblazer", ">= 2.0.3"
-gem 'trailblazer-rails'
 
 gem "slim-rails"
 gem 'bootstrap-sass', '~> 3.3.7'
