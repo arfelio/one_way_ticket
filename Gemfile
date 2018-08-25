@@ -39,6 +39,9 @@ gem 'orm_adapter'
 gem "interactor", "~> 3.0"
 gem "dry-validation"
 
+gem 'sidekiq'
+gem 'dotenv-rails'
+
 gem "slim-rails"
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails'
@@ -49,6 +52,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'letter_opener'
   gem 'pry-rails'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
