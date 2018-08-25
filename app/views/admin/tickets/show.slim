@@ -1,14 +1,32 @@
 .container
-  .col-md-5
+  .row
+    .col-md-4
+      h4
+        | Uuid: &nbsp
+        = @ticket.uuid
+      h4
+        | Department: &nbsp
+        = @ticket.department
+    .col-md-8
+      h4
+        | Customer: &nbsp
+        = @ticket.customer_name
+      h4
+        | Subject: &nbsp
+        = @ticket.subject
+      p
+        = @ticket.description
+
+  .row
     .form-area
-      = form_for @form do |f|
-        - if @errors.any?
-          ul.list-group
-            - @errors.each do |k,v|
-              li.list-group-item
-                = k
-                | &nbsp
-                = v.join(" ")
+      = form_for @ticket, url:admin_tickets_path  do |f|
+        / - if @errors.any?
+        /   ul.list-group
+        /     - @errors.each do |k,v|
+        /       li.list-group-item
+        /         = k
+        /         | &nbsp
+        /         = v.join(" ")
 
         br style="clear:both" /
         h3 style=("margin-bottom: 25px; text-align: center;")  Ticket Form
@@ -29,4 +47,3 @@
 
           span.help-block/
         = f.submit 'Submit Form', class: "btn btn-primary pull-right"
-

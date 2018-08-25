@@ -1,0 +1,18 @@
+.container
+  .col-md-5
+    .form-area
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+
+        br style="clear:both" /
+        h3 style=("margin-bottom: 25px; text-align: center;")  Log In
+
+        .form-group
+          = f.label :email
+          = f.email_field :email, class: "form-control", required: true, placeholder: "Email"
+
+        .form-group
+          = f.password_field :password, class: "form-control", required: true, placeholder: "Password"
+
+          span.help-block/
+        = f.submit 'Log in', class: "btn btn-primary pull-right"
+
