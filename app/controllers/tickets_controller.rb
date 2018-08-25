@@ -1,8 +1,7 @@
 class TicketsController < ApplicationController
 
   def new
-    @errors = {}
-    @form = Ticket.new
+    @errors, @form = {}, Ticket.new
   end
 
   def create
@@ -10,8 +9,7 @@ class TicketsController < ApplicationController
     if res.success?
       redirect_to accepted_tickets_path
     else
-      @form = res.ticket
-      @errors = res.message
+      @errors, @form = res.message, res.ticket
       render :new
     end
   end

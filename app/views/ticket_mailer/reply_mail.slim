@@ -1,0 +1,9 @@
+h1
+  | Hi &nbsp
+  = @ticket.customer_name
+p
+  | It is answer on your ticket with identifier &nbsp
+  = @ticket.uuid
+p
+  | Answer: &nbsp
+  = @reply.message

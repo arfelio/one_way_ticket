@@ -13,4 +13,12 @@ class TicketRepo
   def find
     Ticket.to_adapter.find_first(params)
   end
+
+  def find_by_id
+    Ticket.to_adapter.get!(params)
+  end
+
+  def get_collection
+    Ticket.to_adapter.find_all(params)
+  end
 end
