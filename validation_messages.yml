@@ -1,0 +1,12 @@
+en:
+  errors:
+    email?:
+      value:
+        string:
+          arg:
+            default: "It should be valid email"
+    unique?:
+      value:
+        string:
+          arg:
+            default: "It should be unique"

@@ -2,7 +2,7 @@ class Admin::TicketsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @tickets = TicketRepo.new({}).get_collection
+    @tickets = TicketRepo.new(params).search
   end
 
   def show

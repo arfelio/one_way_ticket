@@ -13,7 +13,7 @@
         br style="clear:both" /
         h3 style=("margin-bottom: 25px; text-align: center;")  Ticket Form
         .form-group
-          = f.text_field :customer_name, class: "form-control", placeholder: "Name"
+          = f.text_field :customer_name, class: "form-control", equired: true, placeholder: "Name"
 
         .form-group
           = f.email_field :customer_email, class: "form-control", required: true, placeholder: "Email"

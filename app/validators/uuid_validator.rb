@@ -1,6 +1,7 @@
 class UuidValidator
   Schema = Dry::Validation.Schema do
     configure do
+      config.messages_file = Rails.root + 'validation_messages.yml'
 
       def unique?(attr_name, value)
         options = {}

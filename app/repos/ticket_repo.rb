@@ -18,7 +18,16 @@ class TicketRepo
     Ticket.to_adapter.get!(params)
   end
 
-  def get_collection
-    Ticket.to_adapter.find_all(params)
+  def get_collection(args)
+    args.each_pair { | key, value | args.delete(key) if value.blank? }
+    Ticket.to_adapter.find_all(args)
+  end
+
+  def search
+    if params[:search].present?
+      get_collection(params[:search])
+    else
+      get_collection({})
+    end
   end
 end
