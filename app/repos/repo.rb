@@ -1,26 +1,27 @@
-class TicketRepo
+class Repo
 
-  def initialize(params)
+  def initialize(klass, params)
     @params = params
+    @klass = klass
   end
 
-  attr_reader :params
+  attr_reader :params, :klass
 
   def create
-    Ticket.to_adapter.create!(params)
+    klass.to_adapter.create!(params)
   end
 
   def find
-    Ticket.to_adapter.find_first(params)
+    klass.to_adapter.find_first(params)
   end
 
   def find_by_id
-    Ticket.to_adapter.get!(params)
+    klass.to_adapter.get!(params)
   end
 
   def get_collection(args)
     args.each_pair { | key, value | args.delete(key) if value.blank? }
-    Ticket.to_adapter.find_all(args)
+    klass.to_adapter.find_all(args)
   end
 
   def search

@@ -2,12 +2,12 @@ class Admin::TicketsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @tickets = TicketRepo.new(params).search
+    @tickets = Repo.new(Ticket, params).search
   end
 
   def show
-    @ticket = TicketRepo.new(params[:id]).find_by_id
-    @replies = ReplyRepo.new({ticket_id: @ticket.id}).get_collection
+    @ticket = Repo.new(Ticket, params[:id]).find_by_id
+    @replies = Repo.new(Reply, {ticket_id: @ticket.id}).search
   end
 
 end

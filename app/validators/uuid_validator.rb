@@ -6,7 +6,7 @@ class UuidValidator
       def unique?(attr_name, value)
         options = {}
         options[attr_name.to_sym] = value
-        TicketRepo.new(options).find.nil?
+        Repo.new(Ticket, options).find.nil?
       end
 
     end
