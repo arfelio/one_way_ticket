@@ -1,0 +1,32 @@
+.container
+  .col-md-5
+    .form-area
+      = form_for @form do |f|
+        - if @errors.any?
+          ul.list-group
+            - @errors.each do |k,v|
+              li.list-group-item
+                = k
+                | &nbsp
+                = v.join(" ")
+
+        br style="clear:both" /
+        h3 style=("margin-bottom: 25px; text-align: center;")  Ticket Form
+        .form-group
+          = f.text_field :customer_name, class: "form-control", equired: true, placeholder: "Name"
+
+        .form-group
+          = f.email_field :customer_email, class: "form-control", required: true, placeholder: "Email"
+
+        .form-group
+          = f.text_field :department, class: "form-control", required: true, placeholder: "Department"
+
+        .form-group
+          = f.text_field :subject, class: "form-control", required: true, placeholder: "Subject"
+
+        .form-group
+          = f.text_area :description, class: "form-control", required: true, placeholder: "Message", rows: 7
+
+          span.help-block/
+        = f.submit 'Submit Form', class: "btn btn-primary pull-right"
+

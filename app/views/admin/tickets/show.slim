@@ -1,0 +1,40 @@
+.container
+  .row
+    .col-md-1
+      = link_to "<- Back", admin_tickets_path
+    .col-md-3
+      h4
+        | Uuid: &nbsp
+        = @ticket.uuid
+      h4
+        | Department: &nbsp
+        = @ticket.department
+    .col-md-8
+      h4
+        | Customer: &nbsp
+        = @ticket.customer_name
+      h4
+        | Subject: &nbsp
+        = @ticket.subject
+      p
+        = @ticket.description
+
+
+  .row
+    h4
+      | Replies
+    - @replies.each do |repa|
+      p
+        = repa.message
+
+    .form-area
+      p#messages
+      = form_for Reply.new, url: admin_replies_path  do |f|
+        br style="clear:both" /
+        h3 style=("margin-bottom: 25px; text-align: center;")  Reply Form
+        .form-group
+          = f.hidden_field :ticket_id, value: @ticket.id
+          = f.text_area :message, class: "form-control", required: true, placeholder: "Message", rows: 5
+
+          span.help-block/
+        = f.submit 'Send Reply', class: "btn btn-primary pull-right"

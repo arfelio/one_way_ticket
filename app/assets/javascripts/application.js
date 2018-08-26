@@ -11,5 +11,25 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
 //= require_tree .
+//= require jquery
+//= require bootstrap-sprockets
+$( document ).ready(function() {
+
+  $("#new_reply").on("submit", function(event){
+    $.ajax({
+      type: "POST",
+      url: this.action,
+      data: $(this).serialize(),
+      success: function(response) {
+        window.location.reload(false);
+      },
+      error: function(response){
+        $('#messages').addClass("bg-danger")
+        $('#messages').text(response.responseJSON.message)
+      }
+    });
+    event.preventDefault();
+  });
+
+});
