@@ -71,15 +71,12 @@ describe Repo do
       }
     end
 
-    before do
-      Repo.new(Ticket, ticket_params).create
-      Repo.new(Ticket, ticket_params).create
-    end
+    let(:ticket) {Repo.new(Ticket, ticket_params).create}
 
     context "when given id to find" do
 
       it "return freshly created Ticket object" do
-        res = Repo.new(Ticket, ticket_params).create
+        res = Repo.new(Ticket, ticket.id).find_by_id
         expect(res.customer_name).to eq("John Dou")
       end
 
