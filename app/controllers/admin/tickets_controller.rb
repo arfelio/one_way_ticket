@@ -7,7 +7,7 @@ class Admin::TicketsController < ApplicationController
 
   def show
     @ticket = Repo.new(Ticket, params[:id]).find_by_id
-    @replies = Repo.new(Reply, {ticket_id: @ticket.id}).search
+    @replies = Repo.new(Reply, {}).get_collection({ticket_id: @ticket.id})
   end
 
 end
